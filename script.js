@@ -67,11 +67,11 @@ style.textContent = `
 `;
 document.head.appendChild(style);
 
-// JSON Parser functionality
-document.addEventListener('DOMContentLoaded', function() {
+function initJsonParser() {
     const jsonInput = document.getElementById('jsonInput');
     const jsonOutput = document.getElementById('jsonOutput');
     const jsonParserCard = document.getElementById('jsonParserCard');
+    if (!jsonInput || !jsonOutput || !jsonParserCard) return;
 
     // Show JSON parser section when clicking the card
     jsonParserCard.addEventListener('click', () => {
@@ -146,4 +146,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
     // Add input event listener
     jsonInput.addEventListener('input', formatJson);
+}
+
+document.addEventListener('DOMContentLoaded', function() {
+    initJsonParser();
 });
+
+if (typeof module !== 'undefined') {
+    module.exports = { initJsonParser };
+}
