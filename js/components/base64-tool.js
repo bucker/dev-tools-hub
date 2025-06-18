@@ -1,3 +1,28 @@
+// Core Base64 utility functions (exported for testing)
+function encodeToBase64(text) {
+    try {
+        return btoa(unescape(encodeURIComponent(text)));
+    } catch (error) {
+        throw new Error('Failed to encode text to Base64');
+    }
+}
+
+function decodeFromBase64(base64String) {
+    try {
+        return decodeURIComponent(escape(atob(base64String)));
+    } catch (error) {
+        throw new Error('Invalid Base64 string');
+    }
+}
+
+function isValidBase64(str) {
+    try {
+        return btoa(atob(str)) === str;
+    } catch (error) {
+        return false;
+    }
+}
+
 function initBase64Tool() {
     const base64Input = document.getElementById('base64Input');
     const base64Output = document.getElementById('base64Output');
@@ -13,33 +38,6 @@ function initBase64Tool() {
     base64Card.addEventListener('click', () => {
         document.getElementById('base64Tool').scrollIntoView({ behavior: 'smooth' });
     });
-
-    // Function to encode text to Base64
-    function encodeToBase64(text) {
-        try {
-            return btoa(unescape(encodeURIComponent(text)));
-        } catch (error) {
-            throw new Error('Failed to encode text to Base64');
-        }
-    }
-
-    // Function to decode Base64 to text
-    function decodeFromBase64(base64String) {
-        try {
-            return decodeURIComponent(escape(atob(base64String)));
-        } catch (error) {
-            throw new Error('Invalid Base64 string');
-        }
-    }
-
-    // Function to check if string is valid Base64
-    function isValidBase64(str) {
-        try {
-            return btoa(atob(str)) === str;
-        } catch (error) {
-            return false;
-        }
-    }
 
     // Function to update output
     function updateOutput(content, isError = false) {
@@ -140,5 +138,10 @@ function initBase64Tool() {
 
 // Export for module systems
 if (typeof module !== 'undefined') {
-    module.exports = { initBase64Tool };
+    module.exports = { 
+        initBase64Tool, 
+        encodeToBase64, 
+        decodeFromBase64, 
+        isValidBase64 
+    };
 } 
