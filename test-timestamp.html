@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Timestamp Converter Test</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { max-width: 800px; margin: 0 auto; }
+        .input-group { margin: 20px 0; }
+        label { display: block; margin-bottom: 5px; font-weight: bold; }
+        input { width: 100%; padding: 10px; margin-bottom: 10px; border: 1px solid #ccc; border-radius: 4px; }
+        button { padding: 10px 20px; margin: 5px; background: #007bff; color: white; border: none; border-radius: 4px; cursor: pointer; }
+        button:hover { background: #0056b3; }
+        .result { margin: 20px 0; padding: 15px; border: 1px solid #ccc; border-radius: 4px; background: #f8f9fa; white-space: pre-wrap; }
+        .error { border-color: #dc3545; background: #f8d7da; color: #721c24; }
+        .success { border-color: #28a745; background: #d4edda; color: #155724; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Timestamp Converter Test</h1>
+        
+        <div class="input-group">
+            <label for="timestampInput">UNIX Timestamp (seconds or milliseconds):</label>
+            <input type="text" id="timestampInput" placeholder="e.g., 1640995200 or 1640995200000">
+        </div>
+        
+        <div class="input-group">
+            <label for="datetimeInput">Date & Time:</label>
+            <input type="datetime-local" id="datetimeInput" step="1">
+        </div>
+        
+        <div class="input-group">
+            <button id="currentTimeBtn">Current Time</button>
+            <button id="clearBtn">Clear</button>
+            <button id="copyBtn">Copy Result</button>
+        </div>
+        
+        <div id="timestampResult" class="result"></div>
+    </div>
+
+    <script src="js/components/timestamp-converter.js"></script>
+    <script>
+        // Initialize the timestamp converter
+        initTimestampConverter();
+    </script>
+</body>
+</html> 
