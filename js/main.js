@@ -76,4 +76,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof initBase64Tool === 'function') {
         initBase64Tool();
     }
+    if (typeof initTimestampConverter === 'function') {
+        initTimestampConverter();
+    }
 }); 

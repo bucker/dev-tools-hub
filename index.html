@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="css/components.css">
     <link rel="stylesheet" href="css/json-parser.css">
     <link rel="stylesheet" href="css/base64-tool.css">
+    <link rel="stylesheet" href="css/timestamp-converter.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -63,6 +64,11 @@
                     <h3>Base64 Encoder/Decoder</h3>
                     <p>Encode text to Base64 and decode Base64 to text</p>
                 </div>
+                <div class="tool-card" id="timestampCard">
+                    <i class="fas fa-clock"></i>
+                    <h3>Timestamp Converter</h3>
+                    <p>Convert UNIX timestamps to human-readable datetime and back</p>
+                </div>
             </div>
         </section>
 
@@ -94,6 +100,43 @@
                     <h3>Result</h3>
                     <div id="base64Output" class="base64-result"></div>
                     <button id="copyBtn" class="base64-btn copy">Copy Result</button>
+                </div>
+            </div>
+        </section>
+
+        <section id="timestampConverter" class="tool-section">
+            <div class="timestamp-converter-container">
+                <div class="timestamp-input-section">
+                    <h3>Input</h3>
+                    <div class="timestamp-input-group">
+                        <label for="timestampInput">UNIX Timestamp (seconds or milliseconds):</label>
+                        <input type="text" id="timestampInput" placeholder="e.g., 1640995200 or 1640995200000">
+                    </div>
+                    <div class="timestamp-input-group">
+                        <label for="datetimeInput">Date & Time:</label>
+                        <input type="datetime-local" id="datetimeInput" step="1">
+                    </div>
+                    <div class="timestamp-buttons">
+                        <button id="currentTimeBtn" class="timestamp-btn">Current Time</button>
+                        <button id="timestampClearBtn" class="timestamp-btn clear">Clear</button>
+                    </div>
+                    <div class="timestamp-examples">
+                        <h4>Examples:</h4>
+                        <ul>
+                            <li>UNIX timestamp: <code>1640995200</code> (seconds)</li>
+                            <li>UNIX timestamp: <code>1640995200000</code> (milliseconds)</li>
+                            <li>Date format: <code>2022-01-01T12:00:00</code></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="timestamp-output-section">
+                    <h3>Result</h3>
+                    <div id="timestampResult" class="timestamp-result"></div>
+                    <button id="timestampCopyBtn" class="timestamp-btn secondary">Copy Result</button>
+                    <div class="timestamp-info">
+                        <strong>Note:</strong> All conversions are performed in your local timezone. 
+                        The tool supports both seconds and milliseconds UNIX timestamps.
+                    </div>
                 </div>
             </div>
         </section>
@@ -133,6 +176,7 @@
     <!-- Modular JavaScript files -->
     <script src="js/components/json-parser.js"></script>
     <script src="js/components/base64-tool.js"></script>
+    <script src="js/components/timestamp-converter.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

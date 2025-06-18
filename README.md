@@ -1,16 +1,104 @@
 # Dev Tools Hub
 
-A modern, responsive GitHub Pages site showcasing essential developer tools.
+A modern, responsive GitHub Pages site showcasing essential developer tools with a modular architecture for easy maintenance and extensibility.
 
 ## Features
 
-- Clean and modern design
-- Responsive layout
-- Interactive tool cards
-- Contact form
-- Smooth scrolling navigation
-- Scroll-based animations
-- Mobile-friendly
+- **Modular Structure**: Clean separation of concerns with dedicated CSS and JS files for each component
+- **JSON Parser**: Format and analyze JSON with collapsible structure and syntax highlighting
+- **Base64 Encoder/Decoder**: Encode text to Base64 and decode Base64 to text with auto-detection
+- **Timestamp Converter**: Convert UNIX timestamps to human-readable datetime and back (both directions)
+- **Responsive Design**: Mobile-friendly layout that works on all devices
+- **Modern UI**: Clean and intuitive interface with smooth animations
+- **Copy to Clipboard**: Easy result copying functionality
+- **Comprehensive Testing**: Unit tests covering edge cases and error handling
+
+## Tools
+
+### JSON Parser
+Format and validate JSON with a collapsible tree structure. Features include:
+- Real-time formatting and validation
+- Collapsible object and array sections
+- Syntax highlighting for different data types
+- Error handling for invalid JSON
+
+### Base64 Encoder/Decoder
+Convert text to Base64 and vice versa. Features include:
+- Auto-detection of input type (text vs Base64)
+- Copy to clipboard functionality
+- Clear button for easy reset
+- Support for large text inputs
+
+### Timestamp Converter
+Convert between UNIX timestamps and human-readable datetime formats. Features include:
+- **Bidirectional conversion**: UNIX timestamp ↔ Human-readable datetime
+- **Multiple formats**: Seconds and milliseconds support
+- **Timezone handling**: Local timezone display with UTC conversion
+- **Current time**: One-click current timestamp generation
+- **Comprehensive output**: UTC, Local, ISO formats plus date components
+- **Copy functionality**: Easy result copying
+- **Input validation**: Robust error handling for invalid inputs
+
+#### Timestamp Converter Usage
+
+**UNIX Timestamp to DateTime:**
+- Enter a UNIX timestamp (seconds or milliseconds) in the first input field
+- The tool automatically converts it to human-readable format
+- Results show both UTC and local time, plus individual date components
+
+**DateTime to UNIX Timestamp:**
+- Use the datetime picker or enter a date in ISO format
+- The tool converts it to UNIX timestamp (both seconds and milliseconds)
+- Results are displayed in the output section
+
+**Examples:**
+```
+UNIX Timestamp (seconds): 1640995200
+→ 2022-01-01 12:00:00 UTC
+
+UNIX Timestamp (milliseconds): 1640995200000
+→ 2022-01-01 12:00:00 UTC
+
+Date: 2022-01-01T12:00:00
+→ UNIX Timestamp: 1640995200
+```
+
+**Supported Input Formats:**
+- UNIX timestamps: `1640995200` (seconds) or `1640995200000` (milliseconds)
+- ISO datetime: `2022-01-01T12:00:00` or `2022-01-01T12:00:00.000Z`
+- Local datetime: `2022-01-01 12:00:00`
+
+## Modular Structure
+
+The project follows a modular architecture for better maintainability:
+
+```
+dev-tools-hub/
+├── css/
+│   ├── base.css              # Reset styles and CSS variables
+│   ├── layout.css            # Header, navigation, and layout styles
+│   ├── components.css        # Common component styles
+│   ├── json-parser.css       # JSON parser specific styles
+│   ├── base64-tool.css       # Base64 tool specific styles
+│   └── timestamp-converter.css # Timestamp converter specific styles
+├── js/
+│   ├── main.js               # Core functionality and component initialization
+│   └── components/
+│       ├── json-parser.js    # JSON parser component
+│       ├── base64-tool.js    # Base64 tool component
+│       └── timestamp-converter.js # Timestamp converter component
+├── __tests__/
+│   ├── jsonParser.test.js    # JSON parser unit tests
+│   └── timestampConverter.test.js # Timestamp converter unit tests
+└── index.html                # Main HTML file
+```
+
+### Benefits of Modular Structure
+- **Maintainability**: Each feature has dedicated files
+- **Reusability**: Components can be easily reused
+- **Scalability**: Easy to add new tools
+- **Testing**: Isolated unit tests for each component
+- **Performance**: Only load necessary CSS/JS
 
 ## Setup
 
@@ -20,47 +108,87 @@ git clone https://github.com/yourusername/dev-tools-hub.git
 cd dev-tools-hub
 ```
 
-2. Customize the content:
-   - Edit `index.html` to update the content
-   - Modify `style.css` to change the styling
-   - Update `script.js` to add new functionality
-
-## Deployment to GitHub Pages
-
-1. Push your changes to GitHub:
+2. Install dependencies (for testing):
 ```bash
-git add .
-git commit -m "Initial commit"
-git push origin main
+npm install
 ```
 
-2. Go to your repository's Settings on GitHub
+3. Run tests:
+```bash
+npm test
+```
 
-3. Scroll down to the "GitHub Pages" section
-
-4. Under "Source", select the branch you want to deploy (usually `main` or `master`)
-
-5. Click "Save"
-
-Your site will be available at `https://yourusername.github.io/dev-tools-hub/`
-
-## Local Development
-
-To test the site locally, you can use any local server. Here's a simple way using Python:
-
+4. Start local development server:
 ```bash
 # Python 3
 python -m http.server 8000
 
 # Python 2
 python -m SimpleHTTPServer 8000
+
+# Node.js (if you have http-server installed)
+npx http-server
 ```
 
 Then open your browser and navigate to `http://localhost:8000`
 
+## Testing
+
+The project includes comprehensive unit tests for all components:
+
+```bash
+# Run all tests
+npm test
+
+# Run tests in watch mode
+npm run test:watch
+
+# Run tests with coverage
+npm run test:coverage
+```
+
+### Test Coverage
+- **JSON Parser**: Formatting, validation, collapsible functionality, error handling
+- **Timestamp Converter**: Bidirectional conversion, timezone handling, edge cases, input validation
+- **Edge Cases**: Invalid inputs, empty values, boundary conditions
+- **User Interactions**: Button clicks, form submissions, navigation
+
+## Adding New Tools
+
+To add a new tool to the modular structure:
+
+1. **Create CSS file**: `css/your-tool.css` for tool-specific styles
+2. **Create JS component**: `js/components/your-tool.js` with initialization function
+3. **Add HTML section**: Include tool section in `index.html`
+4. **Update main.js**: Add initialization call in `DOMContentLoaded` event
+5. **Add tests**: Create `__tests__/yourTool.test.js` for comprehensive testing
+6. **Update documentation**: Add usage instructions to README.md
+
+## Deployment to GitHub Pages
+
+1. Push your changes to GitHub:
+```bash
+git add .
+git commit -m "Add new feature"
+git push origin main
+```
+
+2. Go to your repository's Settings on GitHub
+3. Scroll down to the "GitHub Pages" section
+4. Under "Source", select the branch you want to deploy (usually `main`)
+5. Click "Save"
+
+Your site will be available at `https://yourusername.github.io/dev-tools-hub/`
+
 ## Contributing
 
-Contributions are welcome! Please feel free to submit a Pull Request.
+Contributions are welcome! Please follow these guidelines:
+
+1. Follow the modular structure pattern
+2. Add comprehensive unit tests for new features
+3. Update documentation for any new tools
+4. Ensure responsive design compatibility
+5. Test across different browsers and devices
 
 ## License
 
