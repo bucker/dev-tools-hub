@@ -62,4 +62,26 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof initJwtDecoder === 'function') {
         initJwtDecoder();
     }
-}); 
+});
+
+// Floating Back to Cards button logic
+const backToCardsBtn = document.getElementById('backToCardsBtn');
+const toolsSection = document.getElementById('tools');
+
+if (backToCardsBtn && toolsSection) {
+    function checkToolsSectionInView() {
+        const rect = toolsSection.getBoundingClientRect();
+        // Show button if top of tools section is above viewport by 100px or more
+        if (rect.bottom < 100) {
+            backToCardsBtn.style.display = 'block';
+        } else {
+            backToCardsBtn.style.display = 'none';
+        }
+    }
+    window.addEventListener('scroll', checkToolsSectionInView);
+    window.addEventListener('resize', checkToolsSectionInView);
+    checkToolsSectionInView();
+    backToCardsBtn.addEventListener('click', function() {
+        toolsSection.scrollIntoView({ behavior: 'smooth' });
+    });
+} 
