@@ -59,4 +59,7 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof initTimestampConverter === 'function') {
         initTimestampConverter();
     }
+    if (typeof initJwtDecoder === 'function') {
+        initJwtDecoder();
+    }
 }); 

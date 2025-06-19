@@ -68,6 +68,46 @@ Date: 2022-01-01T12:00:00
 - ISO datetime: `2022-01-01T12:00:00` or `2022-01-01T12:00:00.000Z`
 - Local datetime: `2022-01-01 12:00:00`
 
+### JWT Decoder
+Decode JWT tokens into readable JSON. Features include:
+- Decodes and formats JWT header and payload
+- Robust error handling for invalid tokens
+- Copy decoded JSON to clipboard
+- Clear/reset functionality
+
+#### Usage
+1. Paste your JWT token into the input field.
+2. Click "Decode JWT" to view the decoded header and payload as formatted JSON.
+3. Click "Copy Decoded" to copy the result to your clipboard.
+4. Use "Clear" to reset the input and output fields.
+
+#### Example
+**Input:**
+```
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJzdWIiOiIxMjM0NTY3ODkwIiwibmFtZSI6IkpvaG4gRG9lIiwiaWF0IjoxNTE2MjM5MDIyfQ.SflKxwRJSMeKKF2QT4fwpMeJf36POk6yJV_adQssw5c
+```
+**Output:**
+```
+Header:
+{
+  "alg": "HS256",
+  "typ": "JWT"
+}
+
+Payload:
+{
+  "sub": "1234567890",
+  "name": "John Doe",
+  "iat": 1516239022
+}
+```
+
+#### Limitations & Edge Cases
+- Only decodes the header and payload (signature is not verified or decoded).
+- Input must be a valid JWT (three parts, Base64Url encoded).
+- Malformed or invalid tokens will show a clear error message.
+- Large or deeply nested payloads are formatted as pretty JSON.
+
 ## Modular Structure
 
 The project follows a modular architecture for better maintainability:

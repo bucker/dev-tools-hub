@@ -11,6 +11,7 @@
     <link rel="stylesheet" href="css/json-parser.css">
     <link rel="stylesheet" href="css/base64-tool.css">
     <link rel="stylesheet" href="css/timestamp-converter.css">
+    <link rel="stylesheet" href="css/jwt-decoder.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -68,6 +69,11 @@
                     <i class="fas fa-clock"></i>
                     <h3>Timestamp Converter</h3>
                     <p>Convert UNIX timestamps to human-readable datetime and back</p>
+                </div>
+                <div class="tool-card" id="jwtDecoderCard">
+                    <i class="fas fa-key"></i>
+                    <h3>JWT Decoder</h3>
+                    <p>Decode JWT tokens to readable JSON</p>
                 </div>
             </div>
         </section>
@@ -141,6 +147,24 @@
             </div>
         </section>
 
+        <section id="jwtDecoder" class="tool-section">
+            <div class="jwt-decoder-container">
+                <div class="jwt-input">
+                    <h3>JWT Token</h3>
+                    <textarea id="jwtInput" placeholder="Paste your JWT token here..."></textarea>
+                    <div class="jwt-buttons">
+                        <button id="jwtDecodeBtn" class="jwt-btn">Decode JWT</button>
+                        <button id="jwtClearBtn" class="jwt-btn clear">Clear</button>
+                    </div>
+                </div>
+                <div class="jwt-output">
+                    <h3>Decoded JSON</h3>
+                    <div id="jwtOutput" class="jwt-result"></div>
+                    <button id="jwtCopyBtn" class="jwt-btn copy">Copy Decoded</button>
+                </div>
+            </div>
+        </section>
+
         <section id="about" class="about-section">
             <h2>About Dev Tools Hub</h2>
             <p>Dev Tools Hub is your one-stop destination for discovering and learning about essential developer tools. We curate and showcase tools that can help developers work more efficiently and effectively.</p>
@@ -177,6 +201,7 @@
     <script src="js/components/json-parser.js"></script>
     <script src="js/components/base64-tool.js"></script>
     <script src="js/components/timestamp-converter.js"></script>
+    <script src="js/components/jwt-decoder.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
