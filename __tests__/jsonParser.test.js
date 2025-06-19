@@ -30,7 +30,7 @@ describe('JSON Parser', () => {
         jsonParserCard = document.getElementById('jsonParserCard');
 
         // Load the script and call initJsonParser
-        initJsonParser = require('../script.js').initJsonParser;
+        initJsonParser = require('../js/components/json-parser.js').initJsonParser;
         initJsonParser();
     });
 
