@@ -108,6 +108,37 @@ Payload:
 - Malformed or invalid tokens will show a clear error message.
 - Large or deeply nested payloads are formatted as pretty JSON.
 
+### Text Diff Check
+Compare two strings and highlight their differences. Features include:
+- Visual diff highlighting for added, removed, and unchanged text
+- Word-level comparison for clear readability
+- Robust input validation and error handling
+- Clear/reset functionality
+
+#### Usage
+1. Enter the first string in the "String A" field.
+2. Enter the second string in the "String B" field.
+3. Click "Compare" to see the differences highlighted below.
+4. Use "Clear" to reset both input fields and the result.
+
+#### Example
+**String A:**
+```
+The quick brown fox jumps over the lazy dog.
+```
+**String B:**
+```
+The quick brown fox leaps over the lazy cat.
+```
+**Output:**
+<span class="diff-unchanged">The quick brown fox </span><span class="diff-removed">jumps</span><span class="diff-added">leaps</span><span class="diff-unchanged"> over the lazy </span><span class="diff-removed">dog</span><span class="diff-added">cat</span><span class="diff-unchanged">.</span>
+
+#### Limitations & Edge Cases
+- Only compares plain text (no file upload or rich formatting)
+- Large inputs may be slow to render
+- Requires internet connection to load the diff library (jsdiff)
+- Diff is word-based for clarity; character-level or line-level diff is not currently supported
+
 ## Modular Structure
 
 The project follows a modular architecture for better maintainability:

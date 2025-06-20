@@ -62,6 +62,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof initJwtDecoder === 'function') {
         initJwtDecoder();
     }
+    if (typeof initTextDiffTool === 'function') {
+        initTextDiffTool();
+    }
 });
 
 // Floating Back to Cards button logic

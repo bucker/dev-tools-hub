@@ -100,4 +100,111 @@
 
 .contact-form button:hover {
     background-color: var(--secondary-color);
+}
+
+/* Text Diff Tool Styles */
+.text-diff-container {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  max-width: 1200px;
+  margin: 20px auto;
+  padding: 20px;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+.text-diff-inputs {
+  display: flex;
+  gap: 20px;
+}
+.text-diff-inputs > div {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+}
+.text-diff-inputs textarea {
+  width: 100%;
+  height: 200px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-family: 'Courier New', monospace;
+  font-size: 14px;
+  resize: vertical;
+  box-sizing: border-box;
+}
+
+@media (max-width: 768px) {
+  .text-diff-container {
+    padding: 10px;
+    max-width: 100%;
+  }
+  .text-diff-inputs {
+    flex-direction: column;
+    gap: 12px;
+  }
+  .text-diff-inputs textarea {
+    height: 140px;
+    font-size: 13px;
+  }
+}
+
+.text-diff-actions {
+  display: flex;
+  gap: 1rem;
+}
+.text-diff-btn {
+  padding: 0.5rem 1.5rem;
+  border-radius: 5px;
+  border: none;
+  background: #2563eb;
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+.text-diff-btn.clear {
+  background: #e5e7eb;
+  color: #111;
+}
+.text-diff-btn:hover:not(.clear) {
+  background: #1d4ed8;
+}
+.text-diff-output {
+  margin-top: 1rem;
+}
+.text-diff-result {
+  font-family: monospace;
+  font-size: 1.1rem;
+  padding: 1rem;
+  border-radius: 6px;
+  background: #f3f4f6;
+  min-height: 2rem;
+  word-break: break-word;
+  white-space: pre-wrap;
+}
+.text-diff-result.success {
+  border: 1px solid #10b981;
+}
+.text-diff-result.error {
+  border: 1px solid #ef4444;
+  color: #b91c1c;
+  background: #fef2f2;
+}
+.diff-added {
+  background: #d1fae5;
+  color: #065f46;
+  border-radius: 3px;
+  padding: 0 2px;
+}
+.diff-removed {
+  background: #fee2e2;
+  color: #991b1b;
+  border-radius: 3px;
+  padding: 0 2px;
+  text-decoration: line-through;
+}
+.diff-unchanged {
+  color: #374151;
 } 
