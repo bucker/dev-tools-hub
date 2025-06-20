@@ -55,6 +55,11 @@
                     <h3>JWT Decoder</h3>
                     <p>Decode JWT tokens to readable JSON</p>
                 </div>
+                <div class="tool-card" id="textDiffCard">
+                    <i class="fas fa-align-left"></i>
+                    <h3>Text Diff Check</h3>
+                    <p>Compare two strings and highlight their differences</p>
+                </div>
             </div>
         </section>
 
@@ -145,6 +150,29 @@
             </div>
         </section>
 
+        <section id="textDiffTool" class="tool-section">
+            <div class="text-diff-container">
+                <div class="text-diff-inputs">
+                    <div>
+                        <h3>String A</h3>
+                        <textarea id="textDiffInputA" placeholder="Enter first string..."></textarea>
+                    </div>
+                    <div>
+                        <h3>String B</h3>
+                        <textarea id="textDiffInputB" placeholder="Enter second string..."></textarea>
+                    </div>
+                </div>
+                <div class="text-diff-actions">
+                    <button id="textDiffCompareBtn" class="text-diff-btn">Compare</button>
+                    <button id="textDiffClearBtn" class="text-diff-btn clear">Clear</button>
+                </div>
+                <div class="text-diff-output">
+                    <h3>Difference</h3>
+                    <div id="textDiffOutput" class="text-diff-result"></div>
+                </div>
+            </div>
+        </section>
+
         <section id="about" class="about-section">
             <h2>About Dev Tools Hub</h2>
             <p>Dev Tools Hub is your one-stop destination for discovering and learning about essential developer tools. We curate and showcase tools that can help developers work more efficiently and effectively.</p>
@@ -184,6 +212,8 @@
     <script src="js/components/base64-tool.js"></script>
     <script src="js/components/timestamp-converter.js"></script>
     <script src="js/components/jwt-decoder.js"></script>
+    <script src="js/components/text-diff-tool.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jsdiff/8.0.2/diff.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
