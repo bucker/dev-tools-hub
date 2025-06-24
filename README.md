@@ -8,6 +8,7 @@ A modern, responsive GitHub Pages site showcasing essential developer tools with
 - **JSON Parser**: Format and analyze JSON with collapsible structure and syntax highlighting
 - **Base64 Encoder/Decoder**: Encode text to Base64 and decode Base64 to text with auto-detection
 - **Timestamp Converter**: Convert UNIX timestamps to human-readable datetime and back (both directions)
+- **Markdown Previewer**: Real-time markdown editor and previewer
 - **Responsive Design**: Mobile-friendly layout that works on all devices
 - **Modern UI**: Clean and intuitive interface with smooth animations
 - **Copy to Clipboard**: Easy result copying functionality
@@ -139,6 +140,31 @@ The quick brown fox leaps over the lazy cat.
 - Requires internet connection to load the diff library (jsdiff)
 - Diff is word-based for clarity; character-level or line-level diff is not currently supported
 
+### Markdown Previewer
+A real-time markdown editor and previewer. Features include:
+- Live preview of markdown as you type
+- Supports standard markdown syntax
+- Simple two-column layout for easy comparison
+
+#### Usage
+1. Type your markdown text in the left-hand input area.
+2. The right-hand panel will instantly render the HTML preview.
+
+#### Example
+**Input:**
+```markdown
+# Hello, world!
+
+This is a **markdown** previewer.
+```
+**Output:**
+<h1>Hello, world!</h1>
+<p>This is a <strong>markdown</strong> previewer.</p>
+
+#### Limitations & Edge Cases
+- Requires an internet connection to load the `marked.js` library.
+- Very large documents may experience a slight delay in rendering.
+
 ## Modular Structure
 
 The project follows a modular architecture for better maintainability:
@@ -152,15 +178,18 @@ dev-tools-hub/
 │   ├── json-parser.css       # JSON parser specific styles
 │   ├── base64-tool.css       # Base64 tool specific styles
 │   └── timestamp-converter.css # Timestamp converter specific styles
+│   └── markdown-previewer.css # Markdown previewer specific styles
 ├── js/
 │   ├── main.js               # Core functionality and component initialization
 │   └── components/
 │       ├── json-parser.js    # JSON parser component
 │       ├── base64-tool.js    # Base64 tool component
 │       └── timestamp-converter.js # Timestamp converter component
+│       └── markdown-previewer.js # Markdown previewer component
 ├── __tests__/
 │   ├── jsonParser.test.js    # JSON parser unit tests
 │   └── timestampConverter.test.js # Timestamp converter unit tests
+│   └── markdownPreviewer.test.js # Markdown previewer unit tests
 └── index.html                # Main HTML file
 ```
 
