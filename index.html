@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/base64-tool.css">
     <link rel="stylesheet" href="css/timestamp-converter.css">
     <link rel="stylesheet" href="css/jwt-decoder.css">
+    <link rel="stylesheet" href="css/markdown-previewer.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 <body>
@@ -59,6 +60,11 @@
                     <i class="fas fa-align-left"></i>
                     <h3>Text Diff Check</h3>
                     <p>Compare two strings and highlight their differences</p>
+                </div>
+                <div class="tool-card" id="markdownPreviewerCard">
+                    <i class="fab fa-markdown"></i>
+                    <h3>Markdown Previewer</h3>
+                    <p>Write markdown and see the rendered output</p>
                 </div>
             </div>
         </section>
@@ -173,6 +179,19 @@
             </div>
         </section>
 
+        <section id="markdownPreviewer" class="tool-section">
+            <div class="markdown-previewer-container">
+                <div class="markdown-input">
+                    <h3>Markdown Input</h3>
+                    <textarea id="markdownInput" placeholder="Type your markdown here..."></textarea>
+                </div>
+                <div class="markdown-output">
+                    <h3>Preview</h3>
+                    <div id="markdownOutput" class="markdown-output-content"></div>
+                </div>
+            </div>
+        </section>
+
         <section id="about" class="about-section">
             <h2>About Dev Tools Hub</h2>
             <p>Dev Tools Hub is your one-stop destination for discovering and learning about essential developer tools. We curate and showcase tools that can help developers work more efficiently and effectively.</p>
@@ -213,7 +232,10 @@
     <script src="js/components/timestamp-converter.js"></script>
     <script src="js/components/jwt-decoder.js"></script>
     <script src="js/components/text-diff-tool.js"></script>
+    <script src="js/components/markdown-previewer.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jsdiff/8.0.2/diff.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/dompurify/3.2.6/purify.min.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>

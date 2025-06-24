@@ -65,6 +65,9 @@ document.addEventListener('DOMContentLoaded', function() {
     if (typeof initTextDiffTool === 'function') {
         initTextDiffTool();
     }
+    if (typeof initMarkdownPreviewer === 'function') {
+        initMarkdownPreviewer();
+    }
 });
 
 // Floating Back to Cards button logic
