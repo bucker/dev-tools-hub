@@ -124,6 +124,7 @@
   min-width: 0;
   display: flex;
   flex-direction: column;
+  overflow-x: auto;
 }
 .text-diff-inputs textarea {
   width: 100%;
