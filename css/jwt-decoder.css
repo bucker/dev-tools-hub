@@ -10,7 +10,9 @@
 }
 
 .jwt-input, .jwt-output {
-    flex: 1;
+    flex: 0 0 50%;
+    max-width: 50%;
+    min-width: 0;
 }
 
 .jwt-input h3, .jwt-output h3 {

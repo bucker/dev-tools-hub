@@ -10,7 +10,10 @@
 }
 
 .base64-input, .base64-output {
-    flex: 1;
+    flex: 0 0 50%;
+    max-width: 50%;
+    min-width: 0;
+    overflow-x: auto;
 }
 
 .base64-input h3, .base64-output h3 {
