@@ -1,0 +1,94 @@
+/* HTML Previewer Tool Styles */
+.html-previewer-container {
+    display: flex;
+    gap: 20px;
+    padding: 20px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    margin: 20px 0;
+}
+
+.html-previewer-input, .html-previewer-output {
+    flex: 0 0 50%;
+    max-width: 50%;
+    min-width: 0;
+    overflow-x: auto;
+    display: flex;
+    flex-direction: column;
+}
+
+.html-previewer-input h3, .html-previewer-output h3 {
+    margin-bottom: 10px;
+    color: var(--text-color);
+}
+
+.html-previewer-input textarea {
+    width: 100%;
+    height: 200px;
+    padding: 10px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    font-family: 'Courier New', monospace;
+    font-size: 14px;
+    resize: vertical;
+}
+
+.html-previewer-buttons {
+    display: flex;
+    gap: 10px;
+    margin-top: 10px;
+    flex-wrap: wrap;
+}
+
+.html-previewer-btn {
+    padding: 8px 16px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-size: 14px;
+    transition: background-color 0.3s ease;
+    background-color: var(--primary-color);
+    color: white;
+}
+
+.html-previewer-btn:hover {
+    background-color: var(--secondary-color);
+}
+
+.html-previewer-btn.clear {
+    background-color: #6b7280;
+}
+
+.html-previewer-btn.clear:hover {
+    background-color: #4b5563;
+}
+
+.html-previewer-frame {
+    width: 100%;
+    height: 200px;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    background-color: #f9fafb;
+    margin-top: 0;
+}
+
+.html-previewer-error {
+    margin-top: 12px;
+    color: #dc2626;
+    background: #fef2f2;
+    border: 1px solid #ef4444;
+    border-radius: 4px;
+    padding: 8px 12px;
+    font-size: 14px;
+    display: none;
+}
+
+@media (max-width: 768px) {
+    .html-previewer-container {
+        flex-direction: column;
+    }
+    .html-previewer-frame {
+        height: 140px;
+    }
+} 

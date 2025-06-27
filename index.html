@@ -61,6 +61,11 @@
                     <h3>Text Diff Check</h3>
                     <p>Compare two strings and highlight their differences</p>
                 </div>
+                <div class="tool-card" id="htmlPreviewerCard">
+                    <i class="fas fa-code"></i>
+                    <h3>HTML Previewer</h3>
+                    <p>Render and preview HTML from a string input</p>
+                </div>
             </div>
         </section>
 
@@ -184,6 +189,26 @@
             </div>
         </section>
 
+        <section id="htmlPreviewer" class="tool-section">
+            <h2>HTML Previewer</h2>
+            <p>Input a complete HTML string and see the rendered result instantly. Useful for testing HTML snippets or learning HTML.</p>
+            <div class="html-previewer-container">
+                <div class="html-previewer-input">
+                    <h3>Input HTML</h3>
+                    <textarea id="htmlInput" placeholder="Paste your HTML here..."></textarea>
+                    <div class="html-previewer-buttons">
+                        <button id="htmlPreviewBtn" class="html-previewer-btn">Preview</button>
+                        <button id="htmlClearBtn" class="html-previewer-btn clear">Clear</button>
+                    </div>
+                </div>
+                <div class="html-previewer-output">
+                    <h3>Rendered Output</h3>
+                    <iframe id="htmlOutput" class="html-previewer-frame" sandbox="allow-same-origin"></iframe>
+                </div>
+            </div>
+            <div class="html-previewer-error" id="htmlPreviewerError" style="display:none;"></div>
+        </section>
+
         <section id="about" class="about-section">
             <h2>About Dev Tools Hub</h2>
             <p>Dev Tools Hub is your one-stop destination for discovering and learning about essential developer tools. We curate and showcase tools that can help developers work more efficiently and effectively.</p>
@@ -224,6 +249,7 @@
     <script src="js/components/timestamp-converter.js"></script>
     <script src="js/components/jwt-decoder.js"></script>
     <script src="js/components/text-diff-tool.js"></script>
+    <script src="js/components/html-previewer.js"></script>
     <script src="js/main.js"></script>
 </body>
 </html>
