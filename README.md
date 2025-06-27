@@ -9,6 +9,7 @@ A modern, responsive GitHub Pages site showcasing essential developer tools with
 - **Base64 Encoder/Decoder**: Encode text to Base64 and decode Base64 to text with auto-detection
 - **Timestamp Converter**: Convert UNIX timestamps to human-readable datetime and back (both directions)
 - **Markdown Previewer**: Real-time markdown editor and previewer
+- **HTML Previewer**: Render and preview HTML from a string input
 - **Responsive Design**: Mobile-friendly layout that works on all devices
 - **Modern UI**: Clean and intuitive interface with smooth animations
 - **Copy to Clipboard**: Easy result copying functionality
@@ -165,6 +166,34 @@ This is a **markdown** previewer.
 - Requires an internet connection to load the `marked.js` library.
 - Very large documents may experience a slight delay in rendering.
 
+### HTML Previewer
+Render and preview HTML from a string input. Features include:
+- Live preview of HTML as you type or on button click
+- Two-column layout: input and rendered output
+- Robust input validation and error handling (e.g., script tag blocking)
+- Clear/reset functionality
+
+#### Usage
+1. Enter a complete HTML string in the input area.
+2. Click "Preview" to render the HTML, or see the live preview as you type.
+3. The right panel will display the rendered HTML output in a sandboxed iframe.
+4. Use "Clear" to reset the input and output fields.
+
+#### Example
+**Input:**
+```html
+<h1>Hello, world!</h1>
+<p>This is an <strong>HTML</strong> previewer.</p>
+```
+**Output:**
+<iframe srcdoc="<h1>Hello, world!</h1><p>This is an <strong>HTML</strong> previewer.</p>" sandbox="allow-same-origin"></iframe>
+
+#### Limitations & Edge Cases
+- Script tags are blocked for security reasons.
+- Only HTML is rendered; external resources (CSS/JS) are not loaded.
+- Malformed HTML may not render as expected.
+- The preview is sandboxed for safety.
+
 ## Modular Structure
 
 The project follows a modular architecture for better maintainability:
@@ -179,6 +208,7 @@ dev-tools-hub/
 │   ├── base64-tool.css       # Base64 tool specific styles
 │   └── timestamp-converter.css # Timestamp converter specific styles
 │   └── markdown-previewer.css # Markdown previewer specific styles
+│   └── html-previewer.css      # HTML previewer specific styles
 ├── js/
 │   ├── main.js               # Core functionality and component initialization
 │   └── components/
@@ -186,10 +216,12 @@ dev-tools-hub/
 │       ├── base64-tool.js    # Base64 tool component
 │       └── timestamp-converter.js # Timestamp converter component
 │       └── markdown-previewer.js # Markdown previewer component
+│       └── html-previewer.js      # HTML previewer component
 ├── __tests__/
 │   ├── jsonParser.test.js    # JSON parser unit tests
 │   └── timestampConverter.test.js # Timestamp converter unit tests
 │   └── markdownPreviewer.test.js # Markdown previewer unit tests
+│   └── htmlPreviewer.test.js      # HTML previewer unit tests
 └── index.html                # Main HTML file
 ```
 
