@@ -3,12 +3,15 @@
 /* Tools Section */
 .tools-section {
     padding: 4rem 2rem;
-    background-color: var(--light-bg);
+    max-width: 1200px;
+    margin: 0 auto;
 }
 
 .tools-section h2 {
     text-align: center;
     margin-bottom: 3rem;
+    color: var(--text-color);
+    background-color: var(--light-bg);
 }
 
 .tools-grid {

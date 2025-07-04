@@ -64,6 +64,7 @@
 
 .base64-btn.copy {
     background-color: #059669;
+    margin-top: 16px;
 }
 
 .base64-btn.copy:hover {
