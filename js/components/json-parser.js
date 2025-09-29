@@ -67,7 +67,20 @@ function initJsonParser() {
                 return;
             }
 
-            const parsed = JSON.parse(input);
+            let parsed;
+            try {
+                parsed = JSON.parse(input);
+            } catch (e) {
+                const unescapedInput = input.replace(/\\n/g, '\n')
+                                            .replace(/\\"/g, '"')
+                                            .replace(/\\r/g, '\r')
+                                            .replace(/\\t/g, '\t')
+                                            .replace(/\\f/g, '\f')
+                                            .replace(/\\b/g, '\b')
+                                            .replace(/\\\\/g, '\\');
+                parsed = JSON.parse(unescapedInput);
+            }
+
             jsonOutput.innerHTML = '';
             jsonOutput.appendChild(createJsonTree(parsed));
         } catch (error) {
